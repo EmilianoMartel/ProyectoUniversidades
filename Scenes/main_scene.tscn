@@ -1,0 +1,133 @@
+[gd_scene load_steps=5 format=3 uid="uid://br25w6lkawe1u"]
+
+[ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="1_tho4o"]
+[ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="2_cj3fl"]
+[ext_resource type="PackedScene" uid="uid://dgfheg3k3t6m4" path="res://Scenes/promotor.tscn" id="3_dwgx2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyutx"]
+size = Vector2(128, 130)
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574, 325)
+scale = Vector2(8.96875, 5.07813)
+texture = ExtResource("1_tho4o")
+
+[node name="Player" parent="." instance=ExtResource("2_cj3fl")]
+position = Vector2(72, 574)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(64, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(192, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2(321, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor3"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+position = Vector2(449, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor4"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor4"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor5" type="StaticBody2D" parent="."]
+position = Vector2(579, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor5"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor5"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor6" type="StaticBody2D" parent="."]
+position = Vector2(707, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor6"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor6"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor7" type="StaticBody2D" parent="."]
+position = Vector2(836, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor7"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor7"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor8" type="StaticBody2D" parent="."]
+position = Vector2(964, 712)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor8"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("1_tho4o")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor8"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Promotor" parent="." instance=ExtResource("3_dwgx2")]
+position = Vector2(900, 646)
