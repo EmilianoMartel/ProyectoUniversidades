@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx7ujpdrm2j8r"]
+
+[sub_resource type="GDScript" id="GDScript_dhahn"]
+resource_name = "interactionArea"
+script/source = "extends Area2D
+class_name InteractionArea
+
+@export var action_name: String = \"interact\"
+
+var interact: Callable = func():
+	pass
+"
+
+[node name="IntercationArea" type="Area2D"]
+collision_layer = 0
+script = SubResource("GDScript_dhahn")

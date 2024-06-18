@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxgv8neilq8em"]
+
+[ext_resource type="Texture2D" uid="uid://ja04xxlgxw1p" path="res://Assets/Background/Floor.png" id="1_s2y8s"]
+[ext_resource type="Texture2D" uid="uid://dk7miellusy5b" path="res://Assets/Background/Poster 1.png" id="2_vebp4"]
+[ext_resource type="Texture2D" uid="uid://cfm10phwbv7td" path="res://Assets/Background/Poster 2.png" id="3_voail"]
+[ext_resource type="Texture2D" uid="uid://dbfkxo8rpccnu" path="res://Assets/Background/Poster 5.png" id="4_ahqyn"]
+[ext_resource type="Texture2D" uid="uid://c3hlylr5ns15m" path="res://Assets/Background/Window.png" id="5_k6vfk"]
+[ext_resource type="Texture2D" uid="uid://cmxtqmaar7hjb" path="res://Assets/Background/Lockers.png" id="6_c0c26"]
+[ext_resource type="Texture2D" uid="uid://ca5lbx2punm7i" path="res://Assets/Background/Door (Front).png" id="7_we7x2"]
+[ext_resource type="Texture2D" uid="uid://bjn53s5mty01w" path="res://Assets/Background/Broom.png" id="8_jfsnb"]
+[ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="11_5j7fg"]
+[ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="12_dxytq"]
+[ext_resource type="PackedScene" uid="uid://dgfheg3k3t6m4" path="res://Scenes/promotor.tscn" id="13_qxm1v"]
+
+[sub_resource type="GDScript" id="GDScript_olkut"]
+resource_name = "Level1"
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_promotor_body_entered(body):
+	#get_tree().change_scene_to_file();
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyutx"]
+size = Vector2(3842, 130)
+
+[node name="Level1" type="Node2D"]
+script = SubResource("GDScript_olkut")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Floor2" type="Sprite2D" parent="Background"]
+position = Vector2(969, 1088)
+texture = ExtResource("1_s2y8s")
+
+[node name="Floor3" type="Sprite2D" parent="Background"]
+position = Vector2(2888, 1088)
+texture = ExtResource("1_s2y8s")
+
+[node name="Poster1" type="Sprite2D" parent="Background"]
+position = Vector2(467, 293)
+texture = ExtResource("2_vebp4")
+
+[node name="Poster2" type="Sprite2D" parent="Background"]
+position = Vector2(1175, 354)
+texture = ExtResource("3_voail")
+
+[node name="Poster5" type="Sprite2D" parent="Background"]
+position = Vector2(836, 325)
+texture = ExtResource("4_ahqyn")
+
+[node name="Window" type="Sprite2D" parent="Background"]
+position = Vector2(950, 604)
+texture = ExtResource("5_k6vfk")
+
+[node name="Lockers" type="Sprite2D" parent="Background"]
+position = Vector2(373, 759)
+texture = ExtResource("6_c0c26")
+
+[node name="Door(front)" type="Sprite2D" parent="Background"]
+position = Vector2(1717, 785)
+texture = ExtResource("7_we7x2")
+
+[node name="Broom" type="Sprite2D" parent="Background"]
+position = Vector2(817, 893)
+texture = ExtResource("8_jfsnb")
+
+[node name="Player" parent="." instance=ExtResource("11_5j7fg")]
+position = Vector2(127, 827)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(72, 1142)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("12_dxytq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1858, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Promotor" parent="." instance=ExtResource("13_qxm1v")]
+position = Vector2(1495, 1008)
+
+[connection signal="body_entered" from="Promotor" to="." method="_on_promotor_body_entered"]
