@@ -9,8 +9,20 @@ class_name InteractionArea
 
 var interact: Callable = func():
 	pass
+
+
+func _on_body_entered(body):
+	InteractionManager.register_area(self)
+	
+
+
+func _on_body_exited(body):
+	InteractionManager.unregister_area(self)
 "
 
 [node name="IntercationArea" type="Area2D"]
 collision_layer = 0
 script = SubResource("GDScript_dhahn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

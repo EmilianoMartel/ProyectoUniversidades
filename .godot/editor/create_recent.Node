@@ -1,8 +1,8 @@
+Node2D
 Label
 Area2D
 Sprite2D
 Camera2D
-Node2D
 AnimationPlayer
 CollisionShape2D
 StaticBody2D

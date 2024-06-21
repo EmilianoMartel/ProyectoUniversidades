@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://br25w6lkawe1u"]
+[gd_scene load_steps=17 format=3 uid="uid://br25w6lkawe1u"]
 
 [ext_resource type="Texture2D" uid="uid://cmxtqmaar7hjb" path="res://Assets/Background/Lockers.png" id="1_k3ots"]
 [ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="1_tho4o"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bjn53s5mty01w" path="res://Assets/Background/Broom.png" id="8_sdccd"]
 [ext_resource type="Texture2D" uid="uid://bytobch60kej" path="res://Assets/Background/Poster 4.png" id="9_2hn42"]
 [ext_resource type="Texture2D" uid="uid://dlpipcnfequig" path="res://Assets/Background/Bucket.png" id="10_ot7fy"]
+[ext_resource type="PackedScene" uid="uid://c2iac3572qluj" path="res://Interaction/interaction_manager.tscn" id="14_gayns"]
 
 [sub_resource type="GDScript" id="GDScript_olkut"]
 resource_name = "Level1"
@@ -136,5 +137,4 @@ metadata/_edit_lock_ = true
 [node name="Promotor" parent="." instance=ExtResource("3_dwgx2")]
 position = Vector2(2770, 1008)
 
-[connection signal="body_entered" from="Promotor" to="." method="_on_promotor_body_entered"]
-[connection signal="body_exited" from="Promotor" to="." method="_on_promotor_body_exited"]
+[node name="InteractionManager" parent="." instance=ExtResource("14_gayns")]
