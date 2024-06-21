@@ -1,16 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxgv8neilq8em"]
+[gd_scene load_steps=17 format=3 uid="uid://dxgv8neilq8em"]
 
+[ext_resource type="Texture2D" uid="uid://bbty4qax2v7ou" path="res://Assets/Blue/BG_Blue.png" id="1_oie5w"]
 [ext_resource type="Texture2D" uid="uid://ja04xxlgxw1p" path="res://Assets/Background/Floor.png" id="1_s2y8s"]
 [ext_resource type="Texture2D" uid="uid://dk7miellusy5b" path="res://Assets/Background/Poster 1.png" id="2_vebp4"]
 [ext_resource type="Texture2D" uid="uid://cfm10phwbv7td" path="res://Assets/Background/Poster 2.png" id="3_voail"]
 [ext_resource type="Texture2D" uid="uid://dbfkxo8rpccnu" path="res://Assets/Background/Poster 5.png" id="4_ahqyn"]
-[ext_resource type="Texture2D" uid="uid://c3hlylr5ns15m" path="res://Assets/Background/Window.png" id="5_k6vfk"]
-[ext_resource type="Texture2D" uid="uid://cmxtqmaar7hjb" path="res://Assets/Background/Lockers.png" id="6_c0c26"]
-[ext_resource type="Texture2D" uid="uid://ca5lbx2punm7i" path="res://Assets/Background/Door (Front).png" id="7_we7x2"]
-[ext_resource type="Texture2D" uid="uid://bjn53s5mty01w" path="res://Assets/Background/Broom.png" id="8_jfsnb"]
+[ext_resource type="Texture2D" uid="uid://bc78mb1ai0x6r" path="res://Assets/Blue/Door_Blue.png" id="6_xjai1"]
+[ext_resource type="Texture2D" uid="uid://dhug5eysj6axf" path="res://Assets/Blue/Lift_Blue.png" id="7_6xy6h"]
+[ext_resource type="Texture2D" uid="uid://krvja87mbww8" path="res://Assets/Blue/PowerStation_Blue.png" id="8_iugeg"]
+[ext_resource type="Texture2D" uid="uid://bs1igqf8ol3hy" path="res://Assets/Blue/Window_Blue.png" id="9_j3ite"]
+[ext_resource type="Texture2D" uid="uid://gk3eyc6vhbat" path="res://Assets/Blue/Lockers_Blue.png" id="10_p484d"]
 [ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="11_5j7fg"]
 [ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="12_dxytq"]
 [ext_resource type="PackedScene" uid="uid://dgfheg3k3t6m4" path="res://Scenes/promotor.tscn" id="13_qxm1v"]
+[ext_resource type="Texture2D" uid="uid://d12xrcbtoyxas" path="res://Assets/Blue/Column_Blue.png" id="14_t8hov"]
 
 [sub_resource type="GDScript" id="GDScript_olkut"]
 resource_name = "Level1"
@@ -39,6 +42,10 @@ script = SubResource("GDScript_olkut")
 
 [node name="Background" type="Node2D" parent="."]
 
+[node name="BgBlue" type="Sprite2D" parent="Background"]
+position = Vector2(948, 549)
+texture = ExtResource("1_oie5w")
+
 [node name="Floor2" type="Sprite2D" parent="Background"]
 position = Vector2(969, 1088)
 texture = ExtResource("1_s2y8s")
@@ -59,24 +66,49 @@ texture = ExtResource("3_voail")
 position = Vector2(836, 325)
 texture = ExtResource("4_ahqyn")
 
-[node name="Window" type="Sprite2D" parent="Background"]
-position = Vector2(950, 604)
-texture = ExtResource("5_k6vfk")
+[node name="DoorBlue" type="Sprite2D" parent="Background"]
+position = Vector2(1713, 787)
+texture = ExtResource("6_xjai1")
 
-[node name="Lockers" type="Sprite2D" parent="Background"]
-position = Vector2(373, 759)
-texture = ExtResource("6_c0c26")
+[node name="LiftBlue" type="Sprite2D" parent="Background"]
+position = Vector2(1275, 765)
+texture = ExtResource("7_6xy6h")
 
-[node name="Door(front)" type="Sprite2D" parent="Background"]
-position = Vector2(1717, 785)
-texture = ExtResource("7_we7x2")
+[node name="PowerStationBlue" type="Sprite2D" parent="Background"]
+position = Vector2(982, 930)
+texture = ExtResource("8_iugeg")
 
-[node name="Broom" type="Sprite2D" parent="Background"]
-position = Vector2(817, 893)
-texture = ExtResource("8_jfsnb")
+[node name="WindowBlue" type="Sprite2D" parent="Background"]
+position = Vector2(935, 619)
+texture = ExtResource("9_j3ite")
+
+[node name="LockersBlue" type="Sprite2D" parent="Background"]
+position = Vector2(389, 755)
+texture = ExtResource("10_p484d")
 
 [node name="Player" parent="." instance=ExtResource("11_5j7fg")]
 position = Vector2(127, 827)
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(144, 2284)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("12_dxytq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(1824, -480)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-215, -707)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(72, 1142)
@@ -95,4 +127,7 @@ metadata/_edit_lock_ = true
 [node name="Promotor" parent="." instance=ExtResource("13_qxm1v")]
 position = Vector2(1495, 1008)
 
-[connection signal="body_entered" from="Promotor" to="." method="_on_promotor_body_entered"]
+[node name="ColumnBlue" type="Sprite2D" parent="."]
+position = Vector2(274, 568)
+scale = Vector2(1, 1.03519)
+texture = ExtResource("14_t8hov")
