@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://do2y056aabbc6"]
+[gd_scene load_steps=14 format=3 uid="uid://do2y056aabbc6"]
 
 [ext_resource type="Texture2D" uid="uid://dpau4m2yo70oe" path="res://Assets/Yellow/BG_Yellow.png" id="1_guvkg"]
 [ext_resource type="Texture2D" uid="uid://cylj0xcky66um" path="res://Assets/Yellow/Floor_Yellow.png" id="2_7fdmw"]
@@ -6,10 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bt6dsvbe1kmcr" path="res://Assets/Yellow/Statue_Yellow.png" id="4_p8umc"]
 [ext_resource type="Texture2D" uid="uid://coj4bjvgds2fr" path="res://Assets/Yellow/Window_Yellow.png" id="5_xvyyo"]
 [ext_resource type="Texture2D" uid="uid://fy8s0wddip74" path="res://Assets/Yellow/Lockers_Yellow.png" id="6_or2kr"]
+[ext_resource type="PackedScene" uid="uid://c2iac3572qluj" path="res://Interaction/interaction_manager.tscn" id="10_2y0x6"]
 [ext_resource type="Texture2D" uid="uid://br1f1hbly6rae" path="res://Assets/Yellow/Column_Yellow.png" id="10_8ujln"]
 [ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="11_588cf"]
+[ext_resource type="PackedScene" uid="uid://dx7ujpdrm2j8r" path="res://Interaction/intercation_area.tscn" id="11_ben2q"]
 [ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="12_fiaws"]
-[ext_resource type="PackedScene" uid="uid://dgfheg3k3t6m4" path="res://Scenes/promotor.tscn" id="13_eei80"]
 
 [sub_resource type="GDScript" id="GDScript_olkut"]
 resource_name = "Level1"
@@ -105,10 +106,14 @@ position = Vector2(1858, 1)
 shape = SubResource("RectangleShape2D_iyutx")
 metadata/_edit_lock_ = true
 
-[node name="Promotor" parent="." instance=ExtResource("13_eei80")]
-position = Vector2(1703, 978)
-
 [node name="ColumnBlue" type="Sprite2D" parent="."]
 position = Vector2(274, 568)
 scale = Vector2(1, 1.03519)
 texture = ExtResource("10_8ujln")
+
+[node name="InteractionManager" parent="." instance=ExtResource("10_2y0x6")]
+
+[node name="IntercationArea" parent="." instance=ExtResource("11_ben2q")]
+position = Vector2(1702, 994)
+scene = "res://Scenes/creditos.tscn"
+action_name = "salir"
