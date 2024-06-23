@@ -1,7 +1,12 @@
-res://Scenes/aula1.tscn
-res://Scenes/main_scene.tscn
-res://Scenes/player.tscn
 res://Scenes/promotor.tscn
-res://Scenes/main_menu.tscn
-res://Interaction/intercation_area.tscn
+res://Scenes/main_scene.tscn
 res://Interaction/interaction_manager.tscn
+res://Scripts/interaction_manager.gd
+res://Scenes/level1.tscn
+res://Scenes/main_menu.tscn
+res://Scenes/aula1.tscn
+res://Interaction/intercation_area.tscn
+res://Scenes/level2.tscn
+res://Scenes/aula2.tscn
+res://Scenes/level3.tscn
+res://Scenes/aula3.tscn

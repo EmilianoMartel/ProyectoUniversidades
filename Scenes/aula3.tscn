@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://do2y056aabbc6"]
+
+[ext_resource type="Texture2D" uid="uid://dpau4m2yo70oe" path="res://Assets/Yellow/BG_Yellow.png" id="1_guvkg"]
+[ext_resource type="Texture2D" uid="uid://cylj0xcky66um" path="res://Assets/Yellow/Floor_Yellow.png" id="2_7fdmw"]
+[ext_resource type="Texture2D" uid="uid://hug4nox8yure" path="res://Assets/Yellow/Door_Yellow.png" id="3_st36m"]
+[ext_resource type="Texture2D" uid="uid://bt6dsvbe1kmcr" path="res://Assets/Yellow/Statue_Yellow.png" id="4_p8umc"]
+[ext_resource type="Texture2D" uid="uid://coj4bjvgds2fr" path="res://Assets/Yellow/Window_Yellow.png" id="5_xvyyo"]
+[ext_resource type="Texture2D" uid="uid://fy8s0wddip74" path="res://Assets/Yellow/Lockers_Yellow.png" id="6_or2kr"]
+[ext_resource type="Texture2D" uid="uid://br1f1hbly6rae" path="res://Assets/Yellow/Column_Yellow.png" id="10_8ujln"]
+[ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="11_588cf"]
+[ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="12_fiaws"]
+[ext_resource type="PackedScene" uid="uid://dgfheg3k3t6m4" path="res://Scenes/promotor.tscn" id="13_eei80"]
+
+[sub_resource type="GDScript" id="GDScript_olkut"]
+resource_name = "Level1"
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_promotor_body_entered(body):
+	#get_tree().change_scene_to_file();
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyutx"]
+size = Vector2(3842, 130)
+
+[node name="Level1" type="Node2D"]
+script = SubResource("GDScript_olkut")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BgBlue" type="Sprite2D" parent="Background"]
+position = Vector2(705, 549)
+scale = Vector2(3.19792, 1)
+texture = ExtResource("1_guvkg")
+
+[node name="Floor2" type="Sprite2D" parent="Background"]
+position = Vector2(969, 1088)
+texture = ExtResource("2_7fdmw")
+
+[node name="Floor3" type="Sprite2D" parent="Background"]
+position = Vector2(2888, 1088)
+texture = ExtResource("2_7fdmw")
+
+[node name="DoorBlue" type="Sprite2D" parent="Background"]
+position = Vector2(1702, 787)
+texture = ExtResource("3_st36m")
+
+[node name="LiftBlue" type="Sprite2D" parent="Background"]
+position = Vector2(1275, 765)
+texture = ExtResource("4_p8umc")
+
+[node name="WindowBlue" type="Sprite2D" parent="Background"]
+position = Vector2(935, 619)
+texture = ExtResource("5_xvyyo")
+
+[node name="LockersBlue" type="Sprite2D" parent="Background"]
+position = Vector2(389, 755)
+texture = ExtResource("6_or2kr")
+
+[node name="Player" parent="." instance=ExtResource("11_588cf")]
+position = Vector2(127, 827)
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(144, 2284)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("12_fiaws")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(1824, -480)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-215, -707)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(72, 1142)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("12_fiaws")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1858, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Promotor" parent="." instance=ExtResource("13_eei80")]
+position = Vector2(1703, 978)
+
+[node name="ColumnBlue" type="Sprite2D" parent="."]
+position = Vector2(274, 568)
+scale = Vector2(1, 1.03519)
+texture = ExtResource("10_8ujln")

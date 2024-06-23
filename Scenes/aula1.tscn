@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxgv8neilq8em"]
+[gd_scene load_steps=18 format=3 uid="uid://dxgv8neilq8em"]
 
 [ext_resource type="Texture2D" uid="uid://bbty4qax2v7ou" path="res://Assets/Blue/BG_Blue.png" id="1_oie5w"]
 [ext_resource type="Texture2D" uid="uid://ja04xxlgxw1p" path="res://Assets/Background/Floor.png" id="1_s2y8s"]
@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://gk3eyc6vhbat" path="res://Assets/Blue/Lockers_Blue.png" id="10_p484d"]
 [ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="11_5j7fg"]
 [ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="12_dxytq"]
-[ext_resource type="PackedScene" uid="uid://dgfheg3k3t6m4" path="res://Scenes/promotor.tscn" id="13_qxm1v"]
+[ext_resource type="PackedScene" uid="uid://c2iac3572qluj" path="res://Interaction/interaction_manager.tscn" id="14_orqkn"]
 [ext_resource type="Texture2D" uid="uid://d12xrcbtoyxas" path="res://Assets/Blue/Column_Blue.png" id="14_t8hov"]
+[ext_resource type="PackedScene" uid="uid://dx7ujpdrm2j8r" path="res://Interaction/intercation_area.tscn" id="15_g50tp"]
 
 [sub_resource type="GDScript" id="GDScript_olkut"]
 resource_name = "Level1"
@@ -43,7 +44,8 @@ script = SubResource("GDScript_olkut")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="BgBlue" type="Sprite2D" parent="Background"]
-position = Vector2(948, 549)
+position = Vector2(705, 549)
+scale = Vector2(3.19792, 1)
 texture = ExtResource("1_oie5w")
 
 [node name="Floor2" type="Sprite2D" parent="Background"]
@@ -124,10 +126,14 @@ position = Vector2(1858, 1)
 shape = SubResource("RectangleShape2D_iyutx")
 metadata/_edit_lock_ = true
 
-[node name="Promotor" parent="." instance=ExtResource("13_qxm1v")]
-position = Vector2(1495, 1008)
-
 [node name="ColumnBlue" type="Sprite2D" parent="."]
 position = Vector2(274, 568)
 scale = Vector2(1, 1.03519)
 texture = ExtResource("14_t8hov")
+
+[node name="InteractionManager" parent="." instance=ExtResource("14_orqkn")]
+
+[node name="IntercationArea" parent="." instance=ExtResource("15_g50tp")]
+position = Vector2(1714, 987)
+scene = "res://Scenes/level2.tscn"
+action_name = "salir"

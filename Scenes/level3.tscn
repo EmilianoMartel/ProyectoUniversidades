@@ -1,0 +1,161 @@
+[gd_scene load_steps=20 format=3 uid="uid://btqexxt2ujdws"]
+
+[ext_resource type="Texture2D" uid="uid://ja04xxlgxw1p" path="res://Assets/Background/Floor.png" id="1_lip2y"]
+[ext_resource type="Texture2D" uid="uid://dk7miellusy5b" path="res://Assets/Background/Poster 1.png" id="2_hpvkb"]
+[ext_resource type="Texture2D" uid="uid://cfm10phwbv7td" path="res://Assets/Background/Poster 2.png" id="3_jpksl"]
+[ext_resource type="Texture2D" uid="uid://dbfkxo8rpccnu" path="res://Assets/Background/Poster 5.png" id="4_5g26t"]
+[ext_resource type="Texture2D" uid="uid://c3hlylr5ns15m" path="res://Assets/Background/Window.png" id="5_d8onl"]
+[ext_resource type="Texture2D" uid="uid://c354xxucx0oax" path="res://Assets/Green/Window_Green.png" id="5_q7kje"]
+[ext_resource type="Texture2D" uid="uid://cmxtqmaar7hjb" path="res://Assets/Background/Lockers.png" id="6_4ad3t"]
+[ext_resource type="Texture2D" uid="uid://cltxfi6jejg76" path="res://Assets/Green/Lockers_Green.png" id="7_3hnbu"]
+[ext_resource type="Texture2D" uid="uid://ca5lbx2punm7i" path="res://Assets/Background/Door (Front).png" id="7_wb64e"]
+[ext_resource type="Texture2D" uid="uid://bjn53s5mty01w" path="res://Assets/Background/Broom.png" id="8_vhk3r"]
+[ext_resource type="Texture2D" uid="uid://bytobch60kej" path="res://Assets/Background/Poster 4.png" id="9_texyl"]
+[ext_resource type="Texture2D" uid="uid://gk3eyc6vhbat" path="res://Assets/Blue/Lockers_Blue.png" id="9_uvwxa"]
+[ext_resource type="Texture2D" uid="uid://dlpipcnfequig" path="res://Assets/Background/Bucket.png" id="10_8mugv"]
+[ext_resource type="PackedScene" uid="uid://cv3bglwu0y3to" path="res://Scenes/player.tscn" id="11_0qlnv"]
+[ext_resource type="Texture2D" uid="uid://c2aehkrwlh0ma" path="res://icon.svg" id="12_sb5hd"]
+[ext_resource type="PackedScene" uid="uid://c2iac3572qluj" path="res://Interaction/interaction_manager.tscn" id="13_kpumr"]
+[ext_resource type="PackedScene" uid="uid://dx7ujpdrm2j8r" path="res://Interaction/intercation_area.tscn" id="14_donim"]
+
+[sub_resource type="GDScript" id="GDScript_olkut"]
+resource_name = "Level1"
+script/source = "extends Node2D
+
+var canInteract : bool
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if(Input.is_action_just_pressed(\"Interacting\") && canInteract):
+		get_tree().change_scene_to_file(\"res://Scenes/aula1.tscn\")
+	pass
+
+
+func _on_promotor_body_entered(body):
+	canInteract = true
+	pass # Replace with function body.
+
+
+func _on_promotor_body_exited(body):
+	canInteract = false
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyutx"]
+size = Vector2(3842, 130)
+
+[node name="Level3" type="Node2D"]
+script = SubResource("GDScript_olkut")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Floor2" type="Sprite2D" parent="Background"]
+position = Vector2(969, 1088)
+texture = ExtResource("1_lip2y")
+
+[node name="Floor3" type="Sprite2D" parent="Background"]
+position = Vector2(2888, 1088)
+texture = ExtResource("1_lip2y")
+
+[node name="Floor4" type="Sprite2D" parent="Background"]
+position = Vector2(4808, 1088)
+texture = ExtResource("1_lip2y")
+
+[node name="Poster1" type="Sprite2D" parent="Background"]
+position = Vector2(467, 293)
+texture = ExtResource("2_hpvkb")
+
+[node name="Poster2" type="Sprite2D" parent="Background"]
+position = Vector2(1175, 354)
+texture = ExtResource("3_jpksl")
+
+[node name="Poster5" type="Sprite2D" parent="Background"]
+position = Vector2(836, 325)
+texture = ExtResource("4_5g26t")
+
+[node name="Window" type="Sprite2D" parent="Background"]
+position = Vector2(950, 604)
+texture = ExtResource("5_q7kje")
+
+[node name="Window2" type="Sprite2D" parent="Background"]
+position = Vector2(2383, 604)
+texture = ExtResource("5_d8onl")
+
+[node name="Lockers" type="Sprite2D" parent="Background"]
+position = Vector2(373, 759)
+texture = ExtResource("7_3hnbu")
+
+[node name="Door(front)" type="Sprite2D" parent="Background"]
+position = Vector2(2772, 785)
+texture = ExtResource("7_wb64e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(1728.36, 756.055)
+scale = Vector2(0.985969, 0.97685)
+texture = ExtResource("9_uvwxa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(3465, 762)
+scale = Vector2(0.985969, 0.97685)
+texture = ExtResource("6_4ad3t")
+
+[node name="Broom" type="Sprite2D" parent="Background"]
+position = Vector2(817, 893)
+texture = ExtResource("8_vhk3r")
+
+[node name="Poster4" type="Sprite2D" parent="Background"]
+position = Vector2(2509, 280)
+texture = ExtResource("9_texyl")
+
+[node name="Poster6" type="Sprite2D" parent="Background"]
+position = Vector2(2896, 175)
+texture = ExtResource("4_5g26t")
+
+[node name="Bucket" type="Sprite2D" parent="Background"]
+position = Vector2(3027, 867)
+texture = ExtResource("10_8mugv")
+
+[node name="Player" parent="." instance=ExtResource("11_0qlnv")]
+position = Vector2(127, 827)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(72, 1142)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+self_modulate = Color(0.145098, 0.6, 0.52549, 1)
+texture = ExtResource("12_sb5hd")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1858, 1)
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(72, 1142)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(-139, -250)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(3086, -250)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iyutx")
+metadata/_edit_lock_ = true
+
+[node name="InteractionManager" parent="." instance=ExtResource("13_kpumr")]
+
+[node name="IntercationArea" parent="." instance=ExtResource("14_donim")]
+position = Vector2(2768, 996)
+scene = "res://Scenes/aula3.tscn"
+action_name = "entrar"

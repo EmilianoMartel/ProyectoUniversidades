@@ -21,6 +21,8 @@ func _process(delta):
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
+		label.z_index = 1
+		modulate = Color(0, 0, 0)
 		label.show()
 	else:
 		label.hide()
